@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>My app</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+		<script src="javascripts/chirpApp.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		
+	</head>
+	<body ng-app="">
+		<div id='main' class="container">
+			<nav class="navbar-fluid navbar-default navbar-fixed-top">
+				<div class="container" >
+					<h1><a class="navbar-brand" href="#"> Checking ! </a></h1>
+					<p class="navbar-text"> Make It Fast- </p>
+					<p class="navbar-right navbar-text"><a href="" ng-click="register=false;login=true">Login</a> or <a href="" ng-click="register=true;login=false">Register</a></p>
+				
+				</div>
+			</nav>
+			<br><br><br>
+				<form class="form-auth" ng-show="register">
+				<h2>Register</h2>
+				<p class="text-warning">{{error_message}}</p>
+				<input type="username" ng-model="user.username" placeholder="Username" class="form-control"><br>
+				<input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
+				<input type="submit" value="Register" class="btn btn-primary" />
+			    </form>
+				
+				<form class="form-auth" ng-show="login">
+					<h2>Log In</h2>
+					<p class="text-warning">{{error_message}}</p>
+					<input type="username" ng-model="user.username" placeholder="Username" class="form-control"><br>
+					<input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
+					<input type="submit" value="Log in" class="btn btn-primary" ng-click="availableStores=true;login=false"/>
+				</form>
+				
+				<div class="stores" class="form-inline" ng-show="availableStores">
+				<label> Enter the Store:</label>
+				<input type="text" class="form-control" id="store"><br>
+				<input type="submit" class="btn btn-primary" ng-click="Slots=true;availableStores=false"/>
+			   </div>
+			   <div class="slots" class="form-inline" ng-show="Slots">
+			   <label> Select Your Nearest :</label>
+			   <select class="form-control">
+				  <option value="volvo">sector 50</option>
+				  <option value="saab">sector 41</option>
+				  <option value="opel">sector 56</option>
+				  <option value="audi">sector 78</option>
+				</select><br>
+				<label> Enter the Date:</label><br>
+				<input type="date" class="form-control"><br>
+				<input type="submit" class="btn btn-primary" ng-click="mySlots=true"/>
+			   </div>
+			   <div ng-show="mySlots">
+			   <label> Here are the Slots available : </label>
+			    <table class="table table-dark table-hover">
+					<thead>
+					  <tr>
+						<th>Firstname</th>
+						<th>Lastname</th>
+						<th>Email</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+						<td>John</td>
+						<td>Doe</td>
+						<td>john@example.com</td>
+					  </tr>
+					  <tr>
+						<td>Mary</td>
+						<td>Moe</td>
+						<td>mary@example.com</td>
+					  </tr>
+					  <tr>
+						<td>July</td>
+						<td>Dooley</td>
+						<td>july@example.com</td>
+					  </tr>
+					</tbody>
+				  </table>
+			   </div>
+			  </div>
+				</div>
+		</div>
+	</body>
+</html>
